@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game.gd" type="Script" id=2]
+
+[node name="root" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="screen" type="Node2D" parent="."]
+
+[node name="ui_overlay" type="CanvasLayer" parent="."]
+
+[node name="version" type="Label" parent="ui_overlay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -106.0
+margin_top = -14.0
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps" type="Label" parent="ui_overlay"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

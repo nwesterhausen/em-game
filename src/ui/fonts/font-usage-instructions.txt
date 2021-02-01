@@ -1,0 +1,9 @@
+1) Copy your TTF into your project folder
+2) You will see Godot import it as a DynamicFontData in the file browser
+3) In the inspector click on the "new resource" icon and create a new DynamicFont.
+4) In the Font category, click on Font data and choose your TTF
+5) Save the DynamicFont under the name you want (optional)
+6) You can now use this dynamic font where you want, change its size, spacing etc (without altering the original font).
+
+
+Note that the default size when you create a DynamicFont is 0, so your text is just a few dots if you don't set the size!
