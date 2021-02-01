@@ -37,7 +37,7 @@ func _process(delta):
 	if PlayerStore.targeting_area:
 		GridController.area_target = GridController.tile_to_array(GridController.mouse_tile, 3, 3);
 	if PlayerStore.targeting_side:
-		var side_dir = Global.cardinal_direction_from(GridController.player_tile, GridController.mouse_tile);
+		var side_dir = GridController.cardinal_direction_from(GridController.player_tile, GridController.mouse_tile);
 		if side_dir == 0 || side_dir == 2:
 			GridController.side_target = GridController.tile_to_array((GridController.player_tile + GridController.side_modify_vec[side_dir]),1,3)
 		else:

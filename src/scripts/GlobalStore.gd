@@ -109,23 +109,12 @@ var basic_atk_scenes = {
 	Elements.ARCANE: "res://Scenes/spells/arcane/basic.tscn"
    }
 
+func _ready():
+	# Try load version from VERSION file
+	var file = File.new()
+	var err = file.open('res://VERSION',File.READ)
+	if err == OK:
+		GameVersion = file.get_line()
+		file.close()
+	
 
-# Cardinal Directions:
-#   0: North
-#   1: East
-#   2: South
-#   3: West
-func cardinal_direction_from(vec1, vec2):
-	# Approximate for the side targeting, just need to roughly decide N,S,E,W
-	var vdiff = vec1.y - vec2.y;
-	var hdiff = vec1.x - vec2.x;
-	if abs(vdiff) > abs(hdiff): #more vertical diff
-		if vdiff < 0: #vec1 above
-			return 2;
-		else:
-			return 0;
-	else: #more horizontal diff
-		if hdiff < 0: #vec1 left
-			return 1;
-		else:
-			return 3;
