@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui/custom_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui/fonts/Abassy.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui/fonts/MavenPro-Heading.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/screens/debug_menu.gd" type="Script" id=4]
+
+[node name="DebugMenu" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 358.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 403.0
+margin_right = 620.0
+margin_bottom = 358.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 217.0
+margin_bottom = 358.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer"]
+margin_right = 217.0
+margin_bottom = 358.0
+
+[node name="elAff" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 217.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 2 )
+text = "Elemental Affinity"
+
+[node name="checkWater" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 217.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 3 )
+text = "Water"
+
+[node name="checkIce" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 217.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 3 )
+text = "Ice"
+
+[node name="checkGround" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 110.0
+margin_right = 217.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 3 )
+text = "Ground"
+
+[node name="checkFire" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 146.0
+margin_right = 217.0
+margin_bottom = 178.0
+custom_fonts/font = ExtResource( 3 )
+text = "Fire"
+
+[node name="checkAir" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 182.0
+margin_right = 217.0
+margin_bottom = 214.0
+custom_fonts/font = ExtResource( 3 )
+text = "Air"
+
+[node name="checkElectric" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 218.0
+margin_right = 217.0
+margin_bottom = 250.0
+custom_fonts/font = ExtResource( 3 )
+text = "Electric"
+
+[node name="checkLife" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 217.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 3 )
+text = "Life"
+
+[node name="checkNecrotic" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 290.0
+margin_right = 217.0
+margin_bottom = 322.0
+custom_fonts/font = ExtResource( 3 )
+text = "Necrotic"
+
+[node name="checkArcane" type="CheckButton" parent="VBoxContainer/CenterContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 326.0
+margin_right = 217.0
+margin_bottom = 358.0
+custom_fonts/font = ExtResource( 3 )
+text = "Arcane"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 362.0
+margin_right = 1024.0
+margin_bottom = 410.0
+custom_constants/separation = 64
+alignment = 1
+
+[node name="btnBack" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 404.0
+margin_right = 477.0
+margin_bottom = 48.0
+text = "Back"
+
+[node name="btnStart" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 541.0
+margin_right = 620.0
+margin_bottom = 48.0
+text = "Start"

@@ -6,8 +6,9 @@ var fps
 var screens = {
 	"main_menu": preload("res://src/screens/main_menu.tscn"),
 	"controls": preload("res://src/screens/controls.tscn"),
-	"game": preload("res://src/screens/test_area.tscn"),
-	"credits": preload("res://src/screens/credits.tscn")
+	"game": preload("res://src/screens/test_area.tscn"), #TESTING MODE
+	"credits": preload("res://src/screens/credits.tscn"),
+	"debug_menu": preload("res://src/screens/debug_menu.tscn"),
    }
 
 func _ready():
