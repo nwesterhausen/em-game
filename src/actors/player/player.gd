@@ -5,6 +5,8 @@ var basic_attack = preload("res://src/objects/basic_attack/basic_attack.tscn")
 onready var sprite = $Sprite
 onready var anim_mach = $AnimationTree.get("parameters/playback")
 
+onready var HUD
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(true)
@@ -67,6 +69,7 @@ func _input(event):
 		PlayerStore.active_element += 1
 		if PlayerStore.active_element >= PlayerStore.elemental_affinities.size():
 			PlayerStore.active_element = 0
+		HUD.managems.highlight_active_element()
 	
 	# Cast spells
 	if event.is_action_pressed("ui_cast"):
@@ -98,7 +101,9 @@ func cast_basic():
 		add_child(b);
 		PlayerStore.cooldowns[Global.SpellTypes.BASIC] = Global.basic_cooldown_timer[Global.basic_spell_weight[PlayerStore.elemental_affinities[PlayerStore.active_element]]]
 
-
+func set_hud(nodes_dict):
+	HUD = nodes_dict
+	print (HUD)
 
 # Tick spell cooldowns to 0
 func tick_cooldowns(delta):

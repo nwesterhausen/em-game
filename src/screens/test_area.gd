@@ -11,11 +11,16 @@ var hud = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var Player = PlayerTscn.instance();
-	add_child(Player);
-	
 	var H_managems = hud.managems.instance()
 	add_child(H_managems)
+	
+	var hud_nodes = {
+		'managems': H_managems
+	}
+	
+	var Player = PlayerTscn.instance();
+	add_child(Player);
+	Player.set_hud(hud_nodes)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
