@@ -41,9 +41,11 @@
 
 ### Water  
 
-Icon: water droplet
-
-`#2196F3 rgb(3,169,244)`
+| Property | Value |
+| -- | -- |
+| Icon | water droplet
+| Enscription | 水 [water]
+| Color | `#2196F3 rgb(3,169,244)`
 
 #### Basic Attack: water droplet
  - congeled mass of water
@@ -62,9 +64,12 @@ Icon: water droplet
 
 ### Ice
 
-Icon: ice crystal
+| Property | Value |
+| -- | -- |
+| Icon | ice crystal
+| Enscription |  寒気 [chill, cold, freeze]
+| Color | `#00BCD4 rgb(0,188,212)`
 
-`#00BCD4 rgb(0,188,212)`
 #### Basic Attack: ice crystal
  - small crystal of ice
  - normal
@@ -82,9 +87,12 @@ Icon: ice crystal
 
 ### Fire 
 
-Icon: fire
+| Property | Value |
+| -- | -- |
+| Icon | fire
+| Enscription | 炎 [flame]
+| Color | `#FF5722 rgb(255,87,34)`
 
-`#FF5722 rgb(255,87,34)`
 #### Basic Attack: fireball
  - fireball
  - light
@@ -99,9 +107,12 @@ Icon: fire
 
 ### Ground  
 
-Icon: mountain
+| Property | Value |
+| -- | -- |
+| Icon | mountain
+| Enscription | 土 [soil, earth]
+| Color | `#795548 rgb(121,85,72)`
 
-`#795548 rgb(121,85,72)`
 #### Basic Attack: rock
  - a rock
  - heavy
@@ -118,9 +129,12 @@ Icon: mountain
 
 ### Air 
 
-Icon: cloud
+| Property | Value |
+| -- | -- |
+| Icon | cloud
+| Enscription |  風 [wind, breeze, gale]
+| Color | `#9E9E9E rgb(158,158,158)`
 
-`#9E9E9E rgb(158,158,158)`
 #### Basic Attack: air gust
  - a cloud
  - very light
@@ -138,9 +152,13 @@ Icon: cloud
 
 ### Electric  
 
-Icon: lightning
+| Property | Value |
+| -- | -- |
+| Icon | lightning
+| Enscription | 稲妻 [lightning]
+| Color | `#FFEB3B rgb(255,235,59)`
 
-`#FFEB3B rgb(255,235,59)`
+
 #### Basic Attack: lightning bolt
  - a short lightning bolt
  - light
@@ -161,9 +179,12 @@ Icon: lightning
 
 ## Life 
 
-Icon: leaf
+| Property | Value |
+| -- | -- |
+| Icon | leaf
+| Enscription |  生命 [life, existence]
+| Color | `#4CAF50 rgb(76,175,80)`
 
-`#4CAF50 rgb(76,175,80)`
 #### Basic Attack: leaf
  - a leaf
  - normal
@@ -180,9 +201,12 @@ Icon: leaf
 
 ## Necrotic 
 
-Icon: skull & crossbones
+| Property | Value |
+| -- | -- |
+| Icon | skull & crossbones
+| Enscription | 荒廃 [devastation, ruin, dilapidation, decay]
+| Color | `#212121 rgb(33,33,33)`
 
-`#212121 rgb(33,33,33)`
 #### Basic Attack: dark sphere
  - a small black ball
  - very heavy (x-was normal-x)
@@ -203,9 +227,12 @@ Icon: skull & crossbones
 
 ### Arcane
 
-Icon: magic orb
+| Property | Value |
+| ----- | ----- |
+| Icon | magic orb |
+| Enscription | 魔法 [magic, sorcery] |
+| Color | `#673AB7 rgb(103,58,183)` |
 
-`#673AB7 rgb(103,58,183)`
 #### Basic Attack: "magic" ball
  - small magic ball
  - normal
