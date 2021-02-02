@@ -40,7 +40,11 @@
  - permanent?
 
 ### Water  
+
+Icon: water droplet
+
 `#2196F3 rgb(3,169,244)`
+
 #### Basic Attack: water droplet
  - congeled mass of water
  - heavy
@@ -57,6 +61,9 @@
  - pulls ent/obj towards its center
 
 ### Ice
+
+Icon: ice crystal
+
 `#00BCD4 rgb(0,188,212)`
 #### Basic Attack: ice crystal
  - small crystal of ice
@@ -74,6 +81,9 @@
  - small chance to freeze obj/ent on top
 
 ### Fire 
+
+Icon: fire
+
 `#FF5722 rgb(255,87,34)`
 #### Basic Attack: fireball
  - fireball
@@ -88,6 +98,9 @@
  - obj/ent take compounding damage longer on top 
 
 ### Ground  
+
+Icon: mountain
+
 `#795548 rgb(121,85,72)`
 #### Basic Attack: rock
  - a rock
@@ -104,6 +117,9 @@
  - obj/ent sink and become entombed permanently
 
 ### Air 
+
+Icon: cloud
+
 `#9E9E9E rgb(158,158,158)`
 #### Basic Attack: air gust
  - a cloud
@@ -121,6 +137,9 @@
  - player gets jump boost if in it
 
 ### Electric  
+
+Icon: lightning
+
 `#FFEB3B rgb(255,235,59)`
 #### Basic Attack: lightning bolt
  - a short lightning bolt
@@ -141,6 +160,9 @@
  - obj/ent passing through take intermittent shock dmg
 
 ## Life 
+
+Icon: leaf
+
 `#4CAF50 rgb(76,175,80)`
 #### Basic Attack: leaf
  - a leaf
@@ -157,6 +179,9 @@
  - if obj/ent dies/disappears from activated snare, it re-arms
 
 ## Necrotic 
+
+Icon: skull & crossbones
+
 `#212121 rgb(33,33,33)`
 #### Basic Attack: dark sphere
  - a small black ball
@@ -177,6 +202,9 @@
  - obj/ent that die in zone chance to turn into undead
 
 ### Arcane
+
+Icon: magic orb
+
 `#673AB7 rgb(103,58,183)`
 #### Basic Attack: "magic" ball
  - small magic ball
