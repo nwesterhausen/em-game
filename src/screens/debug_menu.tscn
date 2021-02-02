@@ -16,9 +16,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 358.0
+margin_bottom = 99.0
+text = "Debug Menu"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 103.0
+margin_right = 1024.0
+margin_bottom = 461.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -106,9 +113,9 @@ custom_fonts/font = ExtResource( 3 )
 text = "Arcane"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 362.0
+margin_top = 465.0
 margin_right = 1024.0
-margin_bottom = 410.0
+margin_bottom = 513.0
 custom_constants/separation = 64
 alignment = 1
 

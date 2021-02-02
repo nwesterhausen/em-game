@@ -25,94 +25,94 @@ var area_target = [player_tile];
 var GridShape = RectangleShape2D.new();
 
 func _ready():
-	GridShape.set_extents(gsize_vector);
+    GridShape.set_extents(gsize_vector);
 
 ## Global Helper Functions ##
 # Given a position vector will return a vector for the tile position it is in.
 func pos_to_tile(pos_vector):
-	var tilev = Vector2(int(pos_vector[0]/gdelta),int(pos_vector[1]/gdelta));
-	return tilev;
+    var tilev = Vector2(int(pos_vector[0]/gdelta),int(pos_vector[1]/gdelta));
+    return tilev;
 
 # Uses the grid size to convert a tile vector into a position (x,y) for the 
 # top-left corner of that tile.
 func tile_to_pos(tile_vector):
-	var posv = Vector2(tile_vector[0]*gdelta, tile_vector[1]*gdelta);
-	return posv;
+    var posv = Vector2(tile_vector[0]*gdelta, tile_vector[1]*gdelta);
+    return posv;
 
 # Given a position vector, returns a rectangle for a single grid square for that
 # position.
 func pos_to_rec(pos_vector):
-	var grec = Rect2(pos_vector, gsize_vector);
-	return grec;
+    var grec = Rect2(pos_vector, gsize_vector);
+    return grec;
 
 func tile_to_rec(tile_array):
-	# Handle being passed a single tile Vector instead of an array
-	if typeof(tile_array) == TYPE_VECTOR2:
-		tile_array = [tile_array];
-	# Before continuing, assert that we have an array with stuff in it
-	assert(typeof(tile_array) == TYPE_ARRAY, "ERROR: multitile_to_rec expects a single Vector2 tile or an array of Vector2 tiles")
-	assert(tile_array.size() > 0, "ERROR: must be given a non-empty tile_array")
-	# Shortcut if tile_arrary is just 1 (or 0) in size
-	if tile_array.size() == 1:
-		return pos_to_rec(tile_to_pos(tile_array[0]));
-	# Default position to first tile in array
-	var tl_pos = tile_to_pos(tile_array[0]);
-	var br_pos = Vector2(0,0);
-	# Loop over every tile in the array. For each tile, grab the position
-	# of the tile and compare the upper left corner (how we return the 
-	# position here) to set the rectangle pos (rpos) to be the most upper
-	# and most left points among all the tiles in the array.
-	#
-	# Then calculate the width by adding the grid size to the distance between
-	# the current tile in the array's left-most point and our rectangles left-
-	# most point. Same thing with the height. This could allow to draw a
-	# rectangle over an array of diagonal tiles, or just an top left corner and
-	# bottom right corner.
-	for i in range (tile_array.size()):
-		var ipos = tile_to_pos(tile_array[i]);
-		if ipos[0] < tl_pos[0]: # Is this tile more left than what we stored?
-			tl_pos[0] = ipos[0];
-		elif ipos[0] >= br_pos[0]: # Is this more right than our bottom corner?
-			br_pos[0] = ipos[0];
-		if ipos[1] < tl_pos[1]: # Is this tile more up than what we stored?
-			tl_pos[1] = ipos[1];
-		elif ipos[1] >= br_pos[1]: # Is this more down than our bottom corner?
-			br_pos[1] = ipos[1];
-	
-	# Size is equal to the most bottom right top-left corner position minus the
-	# most top left top-left corner position plus the grid size.
-	var rsize = br_pos - tl_pos + gsize_vector;        
-	var mtrec = Rect2(tl_pos, rsize);
-	return mtrec;
+    # Handle being passed a single tile Vector instead of an array
+    if typeof(tile_array) == TYPE_VECTOR2:
+        tile_array = [tile_array];
+    # Before continuing, assert that we have an array with stuff in it
+    assert(typeof(tile_array) == TYPE_ARRAY, "ERROR: multitile_to_rec expects a single Vector2 tile or an array of Vector2 tiles")
+    assert(tile_array.size() > 0, "ERROR: must be given a non-empty tile_array")
+    # Shortcut if tile_arrary is just 1 (or 0) in size
+    if tile_array.size() == 1:
+        return pos_to_rec(tile_to_pos(tile_array[0]));
+    # Default position to first tile in array
+    var tl_pos = tile_to_pos(tile_array[0]);
+    var br_pos = Vector2(0,0);
+    # Loop over every tile in the array. For each tile, grab the position
+    # of the tile and compare the upper left corner (how we return the 
+    # position here) to set the rectangle pos (rpos) to be the most upper
+    # and most left points among all the tiles in the array.
+    #
+    # Then calculate the width by adding the grid size to the distance between
+    # the current tile in the array's left-most point and our rectangles left-
+    # most point. Same thing with the height. This could allow to draw a
+    # rectangle over an array of diagonal tiles, or just an top left corner and
+    # bottom right corner.
+    for i in range (tile_array.size()):
+        var ipos = tile_to_pos(tile_array[i]);
+        if ipos[0] < tl_pos[0]: # Is this tile more left than what we stored?
+            tl_pos[0] = ipos[0];
+        elif ipos[0] >= br_pos[0]: # Is this more right than our bottom corner?
+            br_pos[0] = ipos[0];
+        if ipos[1] < tl_pos[1]: # Is this tile more up than what we stored?
+            tl_pos[1] = ipos[1];
+        elif ipos[1] >= br_pos[1]: # Is this more down than our bottom corner?
+            br_pos[1] = ipos[1];
+    
+    # Size is equal to the most bottom right top-left corner position minus the
+    # most top left top-left corner position plus the grid size.
+    var rsize = br_pos - tl_pos + gsize_vector;        
+    var mtrec = Rect2(tl_pos, rsize);
+    return mtrec;
 
 # Take a single tile and return an array of tile vectors hlen x vlen centered 
 # on the given tile. Used to make the line targeter and area targeter.
 func tile_to_array(tile_vector, hlen=1, vlen=1):
-	# Can't allow 0 or negative values for dimensions.
-	if hlen < 1:
-		hlen = 1;
-	if vlen < 1:
-		vlen = 1;
-	
-	if hlen == vlen && vlen == 1:
-		# For some reason, this was called with a 1 dimensioned line on
-		# both dimensions. Return an array with the starting tile only.
-		# This *would* get returned by the logic below, but maybe it's
-		# better just to return it here :) 
-		return [tile_vector];
-	
-	var tile_array = [];
-	
-	# Centered lines are what we want. Using a half var, we center on the tile.
-	var hcenter = int(hlen / 2);
-	var vcenter = int(vlen / 2);
-	
-	for i in range (hlen):
-		var hdiff = i - hcenter; # hdiff is how far away from center is this column
-		for j in range (vlen):
-			var vdiff = j - vcenter; # vdiff is how far away from center is this row
-			
-			# Add a tile to the array in relative position (hdiff, vdiff)
-			tile_array.push_front(tile_vector + Vector2(hdiff, vdiff))
-	
-	return tile_array;
+    # Can't allow 0 or negative values for dimensions.
+    if hlen < 1:
+        hlen = 1;
+    if vlen < 1:
+        vlen = 1;
+    
+    if hlen == vlen && vlen == 1:
+        # For some reason, this was called with a 1 dimensioned line on
+        # both dimensions. Return an array with the starting tile only.
+        # This *would* get returned by the logic below, but maybe it's
+        # better just to return it here :) 
+        return [tile_vector];
+    
+    var tile_array = [];
+    
+    # Centered lines are what we want. Using a half var, we center on the tile.
+    var hcenter = int(hlen / 2);
+    var vcenter = int(vlen / 2);
+    
+    for i in range (hlen):
+        var hdiff = i - hcenter; # hdiff is how far away from center is this column
+        for j in range (vlen):
+            var vdiff = j - vcenter; # vdiff is how far away from center is this row
+            
+            # Add a tile to the array in relative position (hdiff, vdiff)
+            tile_array.push_front(tile_vector + Vector2(hdiff, vdiff))
+    
+    return tile_array;

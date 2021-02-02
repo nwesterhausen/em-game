@@ -15,12 +15,17 @@ margin_right = 447.63
 margin_bottom = 577.63
 grow_horizontal = 0
 align = 2
+valign = 1
 
 [node name="elementAffinity2" type="Label" parent="."]
 margin_left = 580.0
 margin_top = 540.0
 margin_right = 816.0
 margin_bottom = 576.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
